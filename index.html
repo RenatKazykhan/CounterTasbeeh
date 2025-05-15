@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Click Counter</title>
+	<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			font-size: 24px;
+			gap: 20px;
+		}
+
+		button {
+			padding: 20px 50px;
+			font-size: 20px;
+			border: none;
+			border-radius: 25px;
+			cursor: pointer;
+			transition: background-color 0.3s;
+			width: 60vw;
+			max-width: 400px;
+		}
+
+		#countButton {
+			background-color: #4CAF50;
+			color: white;
+			height: 150px;
+		}
+
+		#countButton:hover {
+			background-color: #45a049;
+		}
+
+		#resetButton {
+			background-color: #f44336;
+			color: white;
+		}
+
+		#resetButton:hover {
+			background-color: #d32f2f;
+		}
+
+	</style>
+	<script>
+		var count = 0;
+		var audio = new Audio('beep.mp3');
+
+		function increaseCount() {
+			count++;
+			document.getElementById("clicks").innerHTML = count;
+			if (count % 33 == 0 || count % 100 == 0) {
+				audio.play();
+			}
+		}
+
+		function resetCount() {
+			count = 0;
+			document.getElementById("clicks").innerHTML = count;
+		}
+
+		window.addEventListener('keydown', function(e) {
+			if (e.code === 'Space') {
+				e.preventDefault();
+				increaseCount();
+			}
+		})
+
+	</script>
+</head>
+<body>
+	<button id="countButton" onclick="increaseCount()">Зикр</button>
+	<p id="clicks">0</p>
+	<button id="resetButton" onclick="resetCount()">Сброс</button>
+</body>
+</html>
