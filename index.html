@@ -8,29 +8,29 @@
 			flex-direction: column;
 			align-items: center;
 			justify-content: center;
-			height: 100vh;
+			height: 97vh;
 			font-size: 24px;
 			gap: 20px;
 		}
 
 		button {
 			padding: 20px 50px;
-			font-size: 20px;
+			font-size: 40px;
 			border: none;
 			border-radius: 25px;
 			cursor: pointer;
 			transition: background-color 0.3s;
-			width: 60vw;
-			max-width: 400px;
+			width: 80vw;
+			max-width: 600px;
 		}
 
 		#countButton {
 			background-color: #4CAF50;
 			color: white;
-			height: 150px;
+			height: 300px;
 		}
 
-		#countButton:hover {
+		#countButton1:hover {
 			background-color: #45a049;
 		}
 
@@ -52,7 +52,7 @@
 			count++;
 			document.getElementById("clicks").innerHTML = count;
 			if (count % 33 == 0 || count % 100 == 0) {
-				audio.play();
+				//audio.play();
 			}
 		}
 
@@ -71,8 +71,8 @@
 	</script>
 </head>
 <body>
+	<h3 id="clicks">0</p>
 	<button id="countButton" onclick="increaseCount()">Зикр</button>
-	<p id="clicks">0</p>
 	<button id="resetButton" onclick="resetCount()">Сброс</button>
 </body>
 </html>
